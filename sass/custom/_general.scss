@@ -8,8 +8,130 @@ footer{
   background:url("/images/shared/footerBg.gif") center top ;
 }
 .footerTop{
-  background: url("/images/shared/footerTape.png") repeat-x center top;
-  height: 26px;
   display:block;
+
+  height: 26px;
+
+  background: url("/images/shared/footerTape.png") repeat-x center top;
 }
 .awning-top{padding-top:50px;}
+
+
+
+//index
+#carousel-main{
+  background:#FFFFFF;
+  &:before{
+    position:absolute;
+    width:100%;
+    top:-10px;
+    display:block;
+    height:10px;
+    content: "";
+    background: linear-gradient(-45deg, white 50%, transparent 50%) 0 50%,
+                linear-gradient( 45deg, white 50%, transparent 50%) 0 50%;
+    background: -webkit-linear-gradient(135deg, white 50%, transparent 50%) 0 50%,
+                -webkit-linear-gradient(45deg, white 50%, transparent 50%) 0 50%;
+    background: linear-gradient(-45deg, white 50%, transparent 50%) 0 50%,
+                linear-gradient( 45deg, white 50%, transparent 50%) 0 50%;
+    background-repeat: repeat-x;
+    background-size:10px 10px, 10px 10px;
+  }
+  &:after{
+    position:absolute;
+    width:100%;
+    bottom:-10px;
+    display:block;
+    height:10px;
+    content: "";
+    background: linear-gradient(-45deg, transparent 50%, white 50%) 0 50%,
+                linear-gradient( 45deg, transparent 50%, white 50%) 0 50%;
+    background: -webkit-linear-gradient(135deg, transparent 50%, white 50%) 0 50%,
+                -webkit-linear-gradient(45deg, transparent 50%, white 50%) 0 50%;
+    background: linear-gradient(-45deg, transparent 50%, white 50%) 0 50%,
+                linear-gradient( 45deg, transparent 50%, white 50%) 0 50%;
+    background-repeat: repeat-x;
+    background-size:10px 10px, 10px 10px;
+  }
+  .item{
+    padding:5px;
+  }
+
+  .carousel-footer{
+    .carousel-indicators{
+      position:static;
+      text-align:right;
+      margin:0px;
+      padding:0 10px 0 0;
+      width:auto;
+      li{
+        background-color:darken($primaryBlue, 15%);
+        position:static;
+        margin:0px;
+        text-align:right;
+        border:0px;
+        @include square(14px);
+      }
+      .active{
+        @include square(14px);
+        background-color:$primaryBlue;
+      }
+    }
+  }
+}
+
+.panel-frilled{
+  border-radius:0px;
+  border:0px;
+  margin-bottom:30px;
+  .panel-body{
+    margin:-5px 0;
+    padding:0px 10px;
+  }
+  &:before{
+    position:relative;
+    top:-10px;
+    display:block;
+    height:10px;
+    content: "";
+    background: linear-gradient(-45deg, white 50%, transparent 50%) 0 50%,
+                linear-gradient( 45deg, white 50%, transparent 50%) 0 50%;
+    background: -webkit-linear-gradient(135deg, white 50%, transparent 50%) 0 50%,
+                -webkit-linear-gradient(45deg, white 50%, transparent 50%) 0 50%;
+    background: linear-gradient(-45deg, white 50%, transparent 50%) 0 50%,
+                linear-gradient( 45deg, white 50%, transparent 50%) 0 50%;
+    background-repeat: repeat-x;
+    background-size:10px 10px, 10px 10px;
+  }
+  &:after{
+    position:relative;
+    bottom:-10px;
+    display:block;
+    height:10px;
+    content: "";
+    background: linear-gradient(-45deg, transparent 50%, white 50%) 0 50%,
+                linear-gradient( 45deg, transparent 50%, white 50%) 0 50%;
+    background: -webkit-linear-gradient(135deg, transparent 50%, white 50%) 0 50%,
+                -webkit-linear-gradient(45deg, transparent 50%, white 50%) 0 50%;
+    background: linear-gradient(-45deg, transparent 50%, white 50%) 0 50%,
+                linear-gradient( 45deg, transparent 50%, white 50%) 0 50%;
+    background-repeat: repeat-x;
+    background-size:10px 10px, 10px 10px;
+  }
+}
+.footer{
+  h3 {
+    margin-top:0px;
+    .glyphicon{
+      padding-right:5px;
+      font-size:24px;
+    }
+  }
+  li{
+    span {
+      margin-left:5px;
+      @include rotate(-10deg);
+      color: darken($primaryBlue, 20%);
+    }
+  }
+}
