@@ -1178,6 +1178,26 @@ paths:
         200:
           description: ''
           headers: {}
+  //:
+    get:
+      description: 'TODO: Add Description'
+      summary: test
+      tags:
+      - Misc
+      operationId: UnnammedEndpointGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
 definitions:
   Authenticateargus_administrator30copyCopyRequest:
     title: Authenticateargus_administrator30copyCopyRequest
