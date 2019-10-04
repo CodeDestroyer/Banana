@@ -1,0 +1,589 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Service-UI Contacts
+  description: 'TODO: Add Description'
+  contact: {}
+host: services.uat.dev.accessapi.com:30091
+basePath: /v2
+securityDefinitions: {}
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /jwt:
+    post:
+      description: 'TODO: Add Description'
+      summary: Authenticate argus_administrator 30 copy Copy
+      tags:
+      - Misc
+      operationId: JwtPost
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/Authenticateargus_administrator30copyCopyRequest'
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /contacts:
+    get:
+      description: 'TODO: Add Description'
+      summary: GET service-contacts v2
+      tags:
+      - Misc
+      operationId: ContactsGet
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      responses:
+        200:
+          description: ''
+          headers: {}
+    post:
+      description: 'TODO: Add Description'
+      summary: POST service-contacts v2
+      tags:
+      - Misc
+      operationId: ContactsPost
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/POSTservice-contactsv2Request'
+      responses:
+        200:
+          description: ''
+          headers: {}
+  /PERSONAL_98:
+    put:
+      description: 'TODO: Add Description'
+      summary: PUT service-contacts v2 Copy
+      tags:
+      - Misc
+      operationId: PERSONAL98Put
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/PUTservice-contactsv2CopyRequest'
+      responses:
+        200:
+          description: ''
+          headers: {}
+definitions:
+  Authenticateargus_administrator30copyCopyRequest:
+    title: Authenticateargus_administrator30copyCopyRequest
+    example:
+      username: argus_administrator
+      password: Password1
+      audience: urn:switchconnex:svc:portal
+      expires: 36000
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string
+      audience:
+        type: string
+      expires:
+        type: integer
+        format: int32
+    required:
+    - username
+    - password
+    - audience
+    - expires
+  PUTservice-contactsv2CopyRequest:
+    title: PUTservice-contactsv2CopyRequest
+    example:
+      read_only: false
+      first_name: No Profile
+      last_name: Uy
+      group: Personal
+      addresses: []
+      title: 
+      contact_owner_id: 21
+      company: 
+      favorite: false
+      time_zone: 
+      contact_id: personal_98
+      emails:
+      - id: -1
+        type: home
+        is_default: 0
+        email: dtulloss+newguy@coredial.com
+        custom_type: Custom
+      instant_messengers: []
+      source: personal
+      birthday:
+        month: 
+        day: 
+        year: 
+      notes: ''
+      source_id: 98
+      hidden: false
+      phone_numbers: []
+      avatar_href: 
+    type: object
+    properties:
+      read_only:
+        type: boolean
+      first_name:
+        type: string
+      last_name:
+        type: string
+      group:
+        type: string
+      addresses:
+        type: array
+        items:
+          type: string
+      title:
+        type: string
+      contact_owner_id:
+        type: string
+      company:
+        type: string
+      favorite:
+        type: boolean
+      time_zone:
+        type: string
+      contact_id:
+        type: string
+      emails:
+        type: array
+        items:
+          $ref: '#/definitions/Email'
+      instant_messengers:
+        type: array
+        items:
+          type: string
+      source:
+        type: string
+      birthday:
+        $ref: '#/definitions/Birthday'
+      notes:
+        type: string
+      source_id:
+        type: integer
+        format: int32
+      hidden:
+        type: boolean
+      phone_numbers:
+        type: array
+        items:
+          type: string
+      avatar_href:
+        type: string
+    required:
+    - read_only
+    - first_name
+    - last_name
+    - group
+    - addresses
+    - title
+    - contact_owner_id
+    - company
+    - favorite
+    - time_zone
+    - contact_id
+    - emails
+    - instant_messengers
+    - source
+    - birthday
+    - notes
+    - source_id
+    - hidden
+    - phone_numbers
+    - avatar_href
+  Email:
+    title: Email
+    example:
+      id: -1
+      type: home
+      is_default: 0
+      email: dtulloss+newguy@coredial.com
+      custom_type: Custom
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: string
+      is_default:
+        type: integer
+        format: int32
+      email:
+        type: string
+      custom_type:
+        type: string
+    required:
+    - id
+    - type
+    - is_default
+    - email
+    - custom_type
+  Birthday:
+    title: Birthday
+    example:
+      month: 
+      day: 
+      year: 
+    type: object
+    properties:
+      month:
+        type: string
+      day:
+        type: string
+      year:
+        type: string
+    required:
+    - month
+    - day
+    - year
+  POSTservice-contactsv2Request:
+    title: POSTservice-contactsv2Request
+    example:
+      source_id: 
+      contact_owner_id: 21
+      source: personal
+      contact_id: 
+      last_name: string
+      first_name: string
+      time_zone: string
+      group: string
+      phone_numbers:
+      - id: -1
+        type: home
+        custom_type: string
+        number: string
+        extension: string
+        caller_id: string
+        is_primary: 0
+        is_default: 0
+      emails:
+      - id: -1
+        type: home
+        custom_type: string
+        email: string
+        default: 0
+        source: personal
+      instant_messengers:
+      - id: 0
+        type: string
+        name: string
+      addresses:
+      - id: 
+        type: home
+        street_1: string
+        street_2: string
+        apt_number: string
+        city: string
+        state: string
+        zip_code: string
+        zip_plus_four: string
+        country: string
+        time_zone: string
+      notes: string
+      birthday:
+        day: 0
+        month: 0
+        year: 0
+      company: string
+      favorite: true
+      read_only: true
+      hidden: true
+      role_id: 0
+    type: object
+    properties:
+      source_id:
+        type: string
+      contact_owner_id:
+        type: string
+      source:
+        type: string
+      contact_id:
+        type: string
+      last_name:
+        type: string
+      first_name:
+        type: string
+      time_zone:
+        type: string
+      group:
+        type: string
+      phone_numbers:
+        type: array
+        items:
+          $ref: '#/definitions/PhoneNumber'
+      emails:
+        type: array
+        items:
+          $ref: '#/definitions/Email1'
+      instant_messengers:
+        type: array
+        items:
+          $ref: '#/definitions/InstantMessenger'
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/Address'
+      notes:
+        type: string
+      birthday:
+        $ref: '#/definitions/Birthday1'
+      company:
+        type: string
+      favorite:
+        type: boolean
+      read_only:
+        type: boolean
+      hidden:
+        type: boolean
+      role_id:
+        type: integer
+        format: int32
+    required:
+    - source_id
+    - contact_owner_id
+    - source
+    - contact_id
+    - last_name
+    - first_name
+    - time_zone
+    - group
+    - phone_numbers
+    - emails
+    - instant_messengers
+    - addresses
+    - notes
+    - birthday
+    - company
+    - favorite
+    - read_only
+    - hidden
+    - role_id
+  PhoneNumber:
+    title: PhoneNumber
+    example:
+      id: -1
+      type: home
+      custom_type: string
+      number: string
+      extension: string
+      caller_id: string
+      is_primary: 0
+      is_default: 0
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: string
+      custom_type:
+        type: string
+      number:
+        type: string
+      extension:
+        type: string
+      caller_id:
+        type: string
+      is_primary:
+        type: integer
+        format: int32
+      is_default:
+        type: integer
+        format: int32
+    required:
+    - id
+    - type
+    - custom_type
+    - number
+    - extension
+    - caller_id
+    - is_primary
+    - is_default
+  Email1:
+    title: Email1
+    example:
+      id: -1
+      type: home
+      custom_type: string
+      email: string
+      default: 0
+      source: personal
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: string
+      custom_type:
+        type: string
+      email:
+        type: string
+      default:
+        type: integer
+        format: int32
+      source:
+        type: string
+    required:
+    - id
+    - type
+    - custom_type
+    - email
+    - default
+    - source
+  InstantMessenger:
+    title: InstantMessenger
+    example:
+      id: 0
+      type: string
+      name: string
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: string
+      name:
+        type: string
+    required:
+    - id
+    - type
+    - name
+  Address:
+    title: Address
+    example:
+      id: 
+      type: home
+      street_1: string
+      street_2: string
+      apt_number: string
+      city: string
+      state: string
+      zip_code: string
+      zip_plus_four: string
+      country: string
+      time_zone: string
+    type: object
+    properties:
+      id:
+        type: string
+      type:
+        type: string
+      street_1:
+        type: string
+      street_2:
+        type: string
+      apt_number:
+        type: string
+      city:
+        type: string
+      state:
+        type: string
+      zip_code:
+        type: string
+      zip_plus_four:
+        type: string
+      country:
+        type: string
+      time_zone:
+        type: string
+    required:
+    - id
+    - type
+    - street_1
+    - street_2
+    - apt_number
+    - city
+    - state
+    - zip_code
+    - zip_plus_four
+    - country
+    - time_zone
+  Birthday1:
+    title: Birthday1
+    example:
+      day: 0
+      month: 0
+      year: 0
+    type: object
+    properties:
+      day:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      year:
+        type: integer
+        format: int32
+    required:
+    - day
+    - month
+    - year
+tags:
+- name: Misc
+  description: ''
