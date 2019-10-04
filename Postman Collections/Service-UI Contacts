@@ -45,13 +45,13 @@ paths:
         200:
           description: ''
           headers: {}
-  /contacts:
+  /{userId}/contacts:
     get:
       description: 'TODO: Add Description'
       summary: GET service-contacts v2
       tags:
       - Misc
-      operationId: ContactsGet
+      operationId: ContactsByUserIdGet
       deprecated: false
       produces:
       - application/json
@@ -61,40 +61,1052 @@ paths:
         required: false
         default: Bearer {token}
         type: string
+      - name: userId
+        in: path
+        required: true
+        type: integer
+        format: int32
+        description: User's ID
       responses:
         200:
           description: ''
-          headers: {}
-    post:
-      description: 'TODO: Add Description'
-      summary: POST service-contacts v2
-      tags:
-      - Misc
-      operationId: ContactsPost
-      deprecated: false
-      produces:
-      - application/json
-      parameters:
-      - name: Authorization
-        in: header
-        required: false
-        default: Bearer {token}
-        type: string
-      - name: Content-Type
-        in: header
-        required: true
-        type: string
-        description: ''
-      - name: Body
-        in: body
-        required: true
-        description: ''
-        schema:
-          $ref: '#/definitions/POSTservice-contactsv2Request'
-      responses:
-        200:
-          description: ''
-          headers: {}
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GETservice-contactsv2'
+          examples:
+            application/json:
+            - last_name: Boomer
+              addresses:
+              - street_1: 7362 Faster Sloww Rd.
+                street_2: ''
+                id: 47
+                city: Philadelphia
+                source: user
+                apt_number: null
+                time_zone: America/New_York
+                zip_plus_four: null
+                state: PA
+                country: USA
+                type: work
+                zip_code: 19420
+              contact_id: User_21
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 100
+                custom_type: null
+                source_id: 2
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              read_only: true
+              first_name: M
+              group: null
+              title: null
+              contactPersonalId: null
+              role_id: 1
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: testaccount@coredial.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 21
+              avatar_href: null
+            - last_name: Boomer
+              addresses:
+              - street_1: 7362 Faster Sloww Rd.
+                street_2: ''
+                id: 47
+                city: Philadelphia
+                source: user
+                apt_number: null
+                time_zone: America/New_York
+                zip_plus_four: null
+                state: PA
+                country: USA
+                type: work
+                zip_code: 19420
+              contact_id: User_21
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 100
+                custom_type: null
+                source_id: 2
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              read_only: true
+              first_name: M
+              group: null
+              title: null
+              contactPersonalId: 18
+              role_id: 1
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: testaccount@coredial.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 21
+              avatar_href: null
+            - last_name: Diggly
+              addresses:
+              - street_1: 1887 Hummingbird Way
+                street_2: ''
+                id: 48
+                city: Lexington
+                source: user
+                apt_number: ''
+                time_zone: America/New_York
+                zip_plus_four: ''
+                state: ME
+                country: USA
+                type: work
+                zip_code: 02421
+              - time_zone: ''
+                street_1: 1
+                street_2: 1
+                id: 598
+                city: 1
+                apt_number: ''
+                zip_plus_four: ''
+                source: personal
+                state: AL
+                country: ''
+                type: work
+                zip_code: 1
+              - time_zone: ''
+                street_1: 3
+                street_2: 3
+                id: 600
+                city: 3
+                apt_number: ''
+                zip_plus_four: ''
+                source: personal
+                state: PW
+                country: ''
+                type: work
+                zip_code: 3
+              contact_id: User_22
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 101
+                custom_type: null
+                source_id: 3
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              - is_default: 0
+                source: contact
+                extension: ''
+                custom_type: ''
+                source_id: 19
+                is_primary: 0
+                type: mobile
+                number: 2153171360
+                caller_id: null
+              - is_default: 0
+                source: contact
+                extension: ''
+                custom_type: ''
+                source_id: 9
+                is_primary: 0
+                type: fax
+                number: 2679803160
+                caller_id: null
+              read_only: true
+              first_name: Jimmy Bo
+              group: null
+              title: null
+              contactPersonalId: 3
+              role_id: 3
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: testaccount@coredial.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 22
+              avatar_href: null
+            - last_name: Gately
+              addresses:
+              - street_1: 432 Flogging Molly Rd.
+                street_2: ''
+                id: 54
+                city: Philadelphia
+                source: user
+                apt_number: ''
+                time_zone: America/New_York
+                zip_plus_four: ''
+                state: PA
+                country: USA
+                type: work
+                zip_code: 19422
+              contact_id: User_28
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 106
+                custom_type: null
+                source_id: 8
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              read_only: true
+              first_name: Bill
+              group: null
+              title: null
+              contactPersonalId: 1
+              role_id: 2
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: testaccount@coredial.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              - custom_type: Custom
+                email: patty@patty.com
+                is_default: 0
+                source: user
+                type: home
+                id: 27
+              notes: sdfdsfsdfsdfdsfs
+              favorite: false
+              time_zone: America/New_York
+              source_id: 28
+              avatar_href: null
+            - last_name: pat
+              addresses:
+              - street_1: ''
+                street_2: ''
+                id: 59
+                city: ''
+                source: user
+                apt_number: ''
+                time_zone: America/New_York
+                zip_plus_four: ''
+                state: ''
+                country: USA
+                type: work
+                zip_code: ''
+              contact_id: User_32
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 102
+                custom_type: null
+                source_id: 4
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              read_only: true
+              first_name: pat
+              group: null
+              title: null
+              contactPersonalId: 11
+              role_id: 3
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: ddd@ddd.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 32
+              avatar_href: null
+            - last_name: pat3
+              addresses:
+              - street_1: ''
+                street_2: ''
+                id: 60
+                city: ''
+                source: user
+                apt_number: ''
+                time_zone: America/New_York
+                zip_plus_four: ''
+                state: ''
+                country: USA
+                type: work
+                zip_code: ''
+              - time_zone: ''
+                street_1: 1
+                street_2: 1
+                id: 601
+                city: 1
+                apt_number: ''
+                zip_plus_four: ''
+                source: personal
+                state: PW
+                country: ''
+                type: work
+                zip_code: 1
+              - time_zone: ''
+                street_1: 3
+                street_2: 3
+                id: 603
+                city: 3
+                apt_number: ''
+                zip_plus_four: ''
+                source: personal
+                state: PW
+                country: ''
+                type: work
+                zip_code: 3
+              contact_id: User_33
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 444
+                custom_type: null
+                source_id: 228
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 67
+                is_primary: 0
+                type: work
+                number: 2222222222
+                caller_id: null
+              read_only: true
+              first_name: pat3
+              group: null
+              title: null
+              contactPersonalId: 16
+              role_id: 3
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: pat3@dd.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              - custom_type: Custom
+                email: sdfsdf@sdfsdf.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 58
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 33
+              avatar_href: null
+            - last_name: pat4
+              addresses:
+              - street_1: ''
+                street_2: ''
+                id: 61
+                city: ''
+                source: user
+                apt_number: null
+                time_zone: America/New_York
+                zip_plus_four: null
+                state: ''
+                country: USA
+                type: work
+                zip_code: ''
+              contact_id: User_34
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 545
+                custom_type: null
+                source_id: 229
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              - is_default: 0
+                source: contact
+                extension: ''
+                custom_type: Custom
+                source_id: 57
+                is_primary: 0
+                type: mobile
+                number: 2153171360
+                caller_id: null
+              read_only: true
+              first_name: pat4
+              group: null
+              title: null
+              contactPersonalId: 15
+              role_id: 3
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: pat4@ddd.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: sdfsfsdf
+              favorite: false
+              time_zone: America/New_York
+              source_id: 34
+              avatar_href: null
+            - last_name: pat5
+              addresses:
+              - street_1: ''
+                street_2: ''
+                id: 62
+                city: ''
+                source: user
+                apt_number: null
+                time_zone: America/New_York
+                zip_plus_four: null
+                state: ''
+                country: USA
+                type: work
+                zip_code: ''
+              contact_id: User_35
+              phone_numbers:
+              - is_default: 0
+                source: extension
+                extension: 103
+                custom_type: null
+                source_id: 5
+                is_primary: 1
+                type: work
+                number: 7815559727
+                caller_id: null
+              - is_default: 0
+                source: contact
+                extension: ''
+                custom_type: Custom
+                source_id: 29
+                is_primary: 0
+                type: work
+                number: 2153171360
+                caller_id: null
+              read_only: true
+              first_name: pat5
+              group: null
+              title: null
+              contactPersonalId: 8
+              role_id: 3
+              instant_messengers: []
+              source: User
+              hidden: false
+              contact_owner_id: 21
+              company: Sunny Real Estate Investments
+              birthday: 
+              emails:
+              - custom_type: null
+                email: pat5@pat5.com
+                is_default: 1
+                source: user
+                type: work
+                id: null
+              notes: ''
+              favorite: false
+              time_zone: America/New_York
+              source_id: 35
+              avatar_href: null
+            - read_only: false
+              first_name: k
+              last_name: k
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: null
+              favorite: false
+              time_zone: null
+              contact_id: personal_2
+              emails:
+              - custom_type: Custom
+                email: sdfds@sdfsdf.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 5
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 2
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 17
+                is_primary: 0
+                type: work
+                number: 3433433434
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: pat
+              last_name: C
+              group: Personal
+              addresses: []
+              title: ''
+              contact_owner_id: 21
+              company: codedestroyer
+              favorite: false
+              time_zone: null
+              contact_id: personal_5
+              emails:
+              - custom_type: Custom
+                email: patrice@codedestroyer.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 10
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 5
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 23
+                is_primary: 0
+                type: work
+                number: 2679803161
+                caller_id: ''
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 24
+                is_primary: 0
+                type: work
+                number: 2679993161
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: zdfdsfs
+              last_name: zddsf
+              group: Personal
+              addresses: []
+              title: asdfad
+              contact_owner_id: 21
+              company: dsda
+              favorite: false
+              time_zone: null
+              contact_id: personal_10
+              emails: []
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: sdfsffdsfsdfds
+              source_id: 10
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 26
+                is_primary: 0
+                type: work
+                number: 2153675454
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: sdfdsfs
+              last_name: sdfsdfs
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: asdfs
+              favorite: false
+              time_zone: null
+              contact_id: personal_12
+              emails:
+              - custom_type: Custom
+                email: pat@codedestroyer.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 11
+              - custom_type: Custom
+                email: sdfgfg@sdfsfsd.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 38
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 12
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: 111
+                custom_type: ''
+                source_id: 27
+                is_primary: 0
+                type: work
+                number: 4444444444
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: hulk
+              last_name: hogan
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: hulkamania
+              favorite: false
+              time_zone: null
+              contact_id: personal_13
+              emails:
+              - custom_type: Custom
+                email: sdfsdfdsfds@sdfdsf.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 40
+              - custom_type: Custom
+                email: pat@codedestroyer.com
+                is_default: 1
+                source: personal
+                type: work
+                id: 45
+              - custom_type: Custom
+                email: xdfsdfds@sdfsd.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 46
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 13
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 28
+                is_primary: 0
+                type: work
+                number: 2222222222
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: sdfdsf
+              last_name: sdfsfds
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: null
+              favorite: false
+              time_zone: null
+              contact_id: personal_14
+              emails: []
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 14
+              hidden: false
+              phone_numbers: []
+              avatar_href: null
+            - read_only: false
+              first_name: sdfsdf
+              last_name: sdfds4354355
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: null
+              favorite: false
+              time_zone: null
+              contact_id: personal_17
+              emails: []
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: 2222
+              source_id: 17
+              hidden: false
+              phone_numbers: []
+              avatar_href: null
+            - read_only: false
+              first_name: Frank
+              last_name: Tank
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: null
+              favorite: false
+              time_zone: null
+              contact_id: personal_46
+              emails:
+              - custom_type: Custom
+                email: pat@pat.com
+                is_default: 0
+                source: personal
+                type: work
+                id: 55
+              instant_messengers: []
+              source: personal
+              birthday:
+                month: null
+                day: null
+                year: null
+              notes: ''
+              source_id: 46
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: ''
+                custom_type: ''
+                source_id: 64
+                is_primary: 0
+                type: work
+                number: 2222222222
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: string
+              last_name: string
+              group: Personal
+              addresses: []
+              title: null
+              contact_owner_id: 21
+              company: string
+              favorite: false
+              time_zone: null
+              contact_id: personal_54
+              emails: []
+              instant_messengers:
+              - type: string
+                id: 1
+                name: string
+              source: personal
+              birthday:
+                month: 0
+                day: 0
+                year: 0
+              notes: string
+              source_id: 54
+              hidden: false
+              phone_numbers: []
+              avatar_href: null
+            - read_only: false
+              first_name: string
+              last_name: string
+              group: Personal
+              addresses:
+              - street_1: string
+                street_2: string
+                id: 617
+                city: string
+                source: personal
+                apt_number: string
+                time_zone: string
+                zip_plus_four: stri
+                state: string
+                country: string
+                type: home
+                zip_code: string
+              title: null
+              contact_owner_id: 21
+              company: string
+              favorite: false
+              time_zone: null
+              contact_id: personal_55
+              emails:
+              - custom_type: string
+                email: string
+                is_default: 0
+                source: personal
+                type: home
+                id: 75
+              instant_messengers:
+              - type: string
+                id: 2
+                name: string
+              source: personal
+              birthday:
+                month: 0
+                day: 0
+                year: 0
+              notes: string
+              source_id: 55
+              hidden: false
+              phone_numbers: []
+              avatar_href: null
+            - read_only: false
+              first_name: string
+              last_name: string
+              group: Personal
+              addresses:
+              - street_1: string
+                street_2: string
+                id: 618
+                city: string
+                source: personal
+                apt_number: string
+                time_zone: string
+                zip_plus_four: stri
+                state: string
+                country: string
+                type: home
+                zip_code: string
+              title: null
+              contact_owner_id: 21
+              company: string
+              favorite: false
+              time_zone: null
+              contact_id: personal_56
+              emails:
+              - custom_type: string
+                email: string
+                is_default: 0
+                source: personal
+                type: home
+                id: 76
+              instant_messengers:
+              - type: string
+                id: 3
+                name: string
+              source: personal
+              birthday:
+                month: 0
+                day: 0
+                year: 0
+              notes: string
+              source_id: 56
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: string
+                custom_type: ''
+                source_id: 94
+                is_primary: 0
+                type: home
+                number: string
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: string
+              last_name: string
+              group: Personal
+              addresses:
+              - street_1: string
+                street_2: string
+                id: 619
+                city: string
+                source: personal
+                apt_number: string
+                time_zone: string
+                zip_plus_four: stri
+                state: string
+                country: string
+                type: home
+                zip_code: string
+              title: null
+              contact_owner_id: 21
+              company: string
+              favorite: true
+              time_zone: null
+              contact_id: personal_57
+              emails:
+              - custom_type: string
+                email: string
+                is_default: 0
+                source: personal
+                type: home
+                id: 77
+              instant_messengers:
+              - type: string
+                id: 4
+                name: string
+              source: personal
+              birthday:
+                month: 0
+                day: 0
+                year: 0
+              notes: string
+              source_id: 57
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: string
+                custom_type: ''
+                source_id: 95
+                is_primary: 0
+                type: home
+                number: string
+                caller_id: ''
+              avatar_href: null
+            - read_only: false
+              first_name: string
+              last_name: string
+              group: Personal
+              addresses:
+              - street_1: string
+                street_2: string
+                id: 620
+                city: string
+                source: personal
+                apt_number: string
+                time_zone: string
+                zip_plus_four: stri
+                state: string
+                country: string
+                type: home
+                zip_code: string
+              title: null
+              contact_owner_id: 21
+              company: string
+              favorite: true
+              time_zone: null
+              contact_id: personal_58
+              emails:
+              - custom_type: string
+                email: string
+                is_default: 0
+                source: personal
+                type: home
+                id: 78
+              instant_messengers:
+              - type: string
+                id: 5
+                name: string
+              source: personal
+              birthday:
+                month: 0
+                day: 0
+                year: 0
+              notes: string
+              source_id: 58
+              hidden: false
+              phone_numbers:
+              - is_default: 0
+                source: personal
+                extension: string
+                custom_type: ''
+                source_id: 96
+                is_primary: 0
+                type: home
+                number: string
+                caller_id: ''
+              avatar_href: null
+          headers:
+            Content-Length:
+              type: string
+              default: 19789
+            Server:
+              type: string
+              default: Werkzeug/0.12.1 Python/2.7.16
+            Date:
+              type: string
+              default: Fri, 04 Oct 2019 19:19:22 GMT
   /PERSONAL_98:
     put:
       description: 'TODO: Add Description'
@@ -126,6 +1138,37 @@ paths:
         200:
           description: ''
           headers: {}
+  /21/contacts:
+    post:
+      description: 'TODO: Add Description'
+      summary: POST service-contacts v2
+      tags:
+      - Misc
+      operationId: 21ContactsPost
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Authorization
+        in: header
+        required: false
+        default: Bearer {token}
+        type: string
+      - name: Content-Type
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/POSTservice-contactsv2Request'
+      responses:
+        200:
+          description: ''
+          headers: {}
 definitions:
   Authenticateargus_administrator30copyCopyRequest:
     title: Authenticateargus_administrator30copyCopyRequest
@@ -150,6 +1193,257 @@ definitions:
     - password
     - audience
     - expires
+  GETservice-contactsv2:
+    title: GETservice-contactsv2
+    example:
+      last_name: Boomer
+      addresses:
+      - street_1: 7362 Faster Sloww Rd.
+        street_2: ''
+        id: 47
+        city: Philadelphia
+        source: user
+        apt_number: 
+        time_zone: America/New_York
+        zip_plus_four: 
+        state: PA
+        country: USA
+        type: work
+        zip_code: 19420
+      contact_id: User_21
+      phone_numbers:
+      - is_default: 0
+        source: extension
+        extension: 100
+        custom_type: 
+        source_id: 2
+        is_primary: 1
+        type: work
+        number: 7815559727
+        caller_id: 
+      read_only: true
+      first_name: M
+      group: 
+      title: 
+      contactPersonalId: 
+      role_id: 1
+      instant_messengers: []
+      source: User
+      hidden: false
+      contact_owner_id: 21
+      company: Sunny Real Estate Investments
+      birthday: 
+      emails:
+      - custom_type: 
+        email: testaccount@coredial.com
+        is_default: 1
+        source: user
+        type: work
+        id: 
+      notes: ''
+      favorite: false
+      time_zone: America/New_York
+      source_id: 21
+      avatar_href: 
+    type: object
+    properties:
+      last_name:
+        type: string
+      addresses:
+        type: array
+        items:
+          $ref: '#/definitions/Address'
+      contact_id:
+        type: string
+      phone_numbers:
+        type: array
+        items:
+          $ref: '#/definitions/PhoneNumber'
+      read_only:
+        type: boolean
+      first_name:
+        type: string
+      group:
+        type: string
+      title:
+        type: string
+      contactPersonalId:
+        type: string
+      role_id:
+        type: integer
+        format: int32
+      instant_messengers:
+        type: array
+        items:
+          $ref: '#/definitions/InstantMessenger'
+      source:
+        type: string
+      hidden:
+        type: boolean
+      contact_owner_id:
+        type: string
+      company:
+        type: string
+      birthday:
+        $ref: '#/definitions/Birthday'
+      emails:
+        type: array
+        items:
+          $ref: '#/definitions/Email'
+      notes:
+        type: string
+      favorite:
+        type: boolean
+      time_zone:
+        type: string
+      source_id:
+        type: integer
+        format: int32
+      avatar_href:
+        type: string
+    required:
+    - last_name
+    - addresses
+    - contact_id
+    - phone_numbers
+    - read_only
+    - first_name
+    - group
+    - title
+    - instant_messengers
+    - source
+    - hidden
+    - contact_owner_id
+    - company
+    - birthday
+    - emails
+    - notes
+    - favorite
+    - time_zone
+    - source_id
+    - avatar_href
+  Address:
+    title: Address
+    example:
+      street_1: 7362 Faster Sloww Rd.
+      street_2: ''
+      id: 47
+      city: Philadelphia
+      source: user
+      apt_number: 
+      time_zone: America/New_York
+      zip_plus_four: 
+      state: PA
+      country: USA
+      type: work
+      zip_code: 19420
+    type: object
+    properties:
+      street_1:
+        type: string
+      street_2:
+        type: string
+      id:
+        type: integer
+        format: int32
+      city:
+        type: string
+      source:
+        type: string
+      apt_number:
+        type: string
+      time_zone:
+        type: string
+      zip_plus_four:
+        type: string
+      state:
+        type: string
+      country:
+        type: string
+      type:
+        type: string
+      zip_code:
+        type: string
+  PhoneNumber:
+    title: PhoneNumber
+    example:
+      is_default: 0
+      source: extension
+      extension: 100
+      custom_type: 
+      source_id: 2
+      is_primary: 1
+      type: work
+      number: 7815559727
+      caller_id: 
+    type: object
+    properties:
+      is_default:
+        type: integer
+        format: int32
+      source:
+        type: string
+      extension:
+        type: string
+      custom_type:
+        type: string
+      source_id:
+        type: integer
+        format: int32
+      is_primary:
+        type: integer
+        format: int32
+      type:
+        type: string
+      number:
+        type: string
+      caller_id:
+        type: string
+  InstantMessenger:
+    title: InstantMessenger
+    type: object
+    properties:
+      type:
+        type: string
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+  Birthday:
+    title: Birthday
+    type: object
+    properties:
+      month:
+        type: string
+      day:
+        type: string
+      year:
+        type: string
+  Email:
+    title: Email
+    example:
+      custom_type: 
+      email: testaccount@coredial.com
+      is_default: 1
+      source: user
+      type: work
+      id: 
+    type: object
+    properties:
+      custom_type:
+        type: string
+      email:
+        type: string
+      is_default:
+        type: integer
+        format: int32
+      source:
+        type: string
+      type:
+        type: string
+      id:
+        type: string
   PUTservice-contactsv2CopyRequest:
     title: PUTservice-contactsv2CopyRequest
     example:
@@ -210,7 +1504,7 @@ definitions:
       emails:
         type: array
         items:
-          $ref: '#/definitions/Email'
+          $ref: '#/definitions/Email1'
       instant_messengers:
         type: array
         items:
@@ -218,7 +1512,7 @@ definitions:
       source:
         type: string
       birthday:
-        $ref: '#/definitions/Birthday'
+        $ref: '#/definitions/Birthday1'
       notes:
         type: string
       source_id:
@@ -253,8 +1547,8 @@ definitions:
     - hidden
     - phone_numbers
     - avatar_href
-  Email:
-    title: Email
+  Email1:
+    title: Email1
     example:
       id: -1
       type: home
@@ -281,8 +1575,8 @@ definitions:
     - is_default
     - email
     - custom_type
-  Birthday:
-    title: Birthday
+  Birthday1:
+    title: Birthday1
     example:
       month: 
       day: 
@@ -373,23 +1667,23 @@ definitions:
       phone_numbers:
         type: array
         items:
-          $ref: '#/definitions/PhoneNumber'
+          $ref: '#/definitions/PhoneNumber1'
       emails:
         type: array
         items:
-          $ref: '#/definitions/Email1'
+          $ref: '#/definitions/Email2'
       instant_messengers:
         type: array
         items:
-          $ref: '#/definitions/InstantMessenger'
+          $ref: '#/definitions/InstantMessenger1'
       addresses:
         type: array
         items:
-          $ref: '#/definitions/Address'
+          $ref: '#/definitions/Address1'
       notes:
         type: string
       birthday:
-        $ref: '#/definitions/Birthday1'
+        $ref: '#/definitions/Birthday2'
       company:
         type: string
       favorite:
@@ -421,8 +1715,8 @@ definitions:
     - read_only
     - hidden
     - role_id
-  PhoneNumber:
-    title: PhoneNumber
+  PhoneNumber1:
+    title: PhoneNumber1
     example:
       id: -1
       type: home
@@ -462,8 +1756,8 @@ definitions:
     - caller_id
     - is_primary
     - is_default
-  Email1:
-    title: Email1
+  Email2:
+    title: Email2
     example:
       id: -1
       type: home
@@ -494,8 +1788,8 @@ definitions:
     - email
     - default
     - source
-  InstantMessenger:
-    title: InstantMessenger
+  InstantMessenger1:
+    title: InstantMessenger1
     example:
       id: 0
       type: string
@@ -513,8 +1807,8 @@ definitions:
     - id
     - type
     - name
-  Address:
-    title: Address
+  Address1:
+    title: Address1
     example:
       id: 
       type: home
@@ -563,8 +1857,8 @@ definitions:
     - zip_plus_four
     - country
     - time_zone
-  Birthday1:
-    title: Birthday1
+  Birthday2:
+    title: Birthday2
     example:
       day: 0
       month: 0
