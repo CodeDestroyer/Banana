@@ -48,7 +48,7 @@ paths:
   /{userId}/contacts:
     get:
       description: 'TODO: Add Description'
-      summary: GET service-contacts v2
+      summary: GET service-contacts
       tags:
       - Misc
       operationId: ContactsByUserIdGet
