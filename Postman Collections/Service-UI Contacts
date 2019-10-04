@@ -73,7 +73,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/GETservice-contactsv2'
+              $ref: '#/definitions/GETservice-contactsv2-200'
           examples:
             application/json:
             - last_name: Boomer
@@ -1106,7 +1106,16 @@ paths:
               default: Werkzeug/0.12.1 Python/2.7.16
             Date:
               type: string
-              default: Fri, 04 Oct 2019 19:19:22 GMT
+              default: Fri, 04 Oct 2019 19:28:09 GMT
+        401:
+          description: UNAUTHORIZED
+          schema:
+            $ref: '#/definitions/GETservice-contactsv2400'
+          examples:
+            application/json:
+              error: Unauthorized
+              message: token is expired
+              status: 401
   /PERSONAL_98:
     put:
       description: 'TODO: Add Description'
@@ -1193,8 +1202,27 @@ definitions:
     - password
     - audience
     - expires
-  GETservice-contactsv2:
-    title: GETservice-contactsv2
+  GETservice-contactsv2400:
+    title: GETservice-contactsv2400
+    example:
+      error: Unauthorized
+      message: token is expired
+      status: 401
+    type: object
+    properties:
+      error:
+        type: string
+      message:
+        type: string
+      status:
+        type: integer
+        format: int32
+    required:
+    - error
+    - message
+    - status
+  GETservice-contactsv2-200:
+    title: GETservice-contactsv2-200
     example:
       last_name: Boomer
       addresses:
