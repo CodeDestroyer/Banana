@@ -9,6 +9,7 @@ basePath: /v2
 securityDefinitions: {}
 schemes:
 - http
+- https
 consumes:
 - application/json
 produces:
@@ -1178,7 +1179,7 @@ paths:
         200:
           description: ''
           headers: {}
-  //:
+  /:
     get:
       description: 'TODO: Add Description'
       summary: test
